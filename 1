@@ -1,0 +1,32 @@
+import csv
+import pandas as pd
+
+# Lista de informações
+listaNome = []
+listaQtde = []
+listaPreco = []
+
+# 1- Ler arquivo CSV 
+arquivoCSV = csv.reader(open("./CSV/arquivoJaneiro.csv"), delimiter = ",")
+
+# 2- Percorrendo todos os itens do arquivo CSV
+for [nome, qtde, preco] in arquivoCSV:
+    listaNome.append(nome)
+    listaQtde.append(qtde)
+    listaPreco.append(preco)
+
+
+# 3- Gerando dicionário de dados para o DataFrame
+dados = {
+    "Nome": listaNome,
+    "Quantidade": listaQtde,
+    "Preço": listaPreco
+}
+
+# 4- Gerando DataFrame(planilha)
+df = pd.DataFrame(data = dados)
+print(df)
+
+
+
+print("-----FINALIZADO------")
